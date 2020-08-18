@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Popular Clicks
-Plugin URI: hhttps://github.com/miconda/yourls
+Plugin Name: Eniten klikattu
+Plugin URI: https://github.com/sakumatto/yourls
 Description: Shows an admin page with the top of last clicked links
 Version: 1.0
-Author: miconda
+Author: Saku (miconda fork)
 Author URI: http://miconda.blogspot.com/
 */
 
@@ -16,7 +16,7 @@ function popularclicks_add_page() {
 // Display popular clicks
 function popularclicks_do_page() {
 	$nonce = yourls_create_nonce('popular_clickks');
-	echo '<h2>Popular Clicks</h2>';
+	echo '<h2>Eniten klikattu</h2>';
 
 	function show_top($numdays,$numrows) {
 		global $ydb;
@@ -41,11 +41,11 @@ function popularclicks_do_page() {
 					. $query_result->longurl . '</td></tr>';
 			}
 		}
-		echo '<h3><b>Popular Clicks in the Last '. $numdays . ' Days:</b></h3><br/>'
-			. '<table><tr><th>Clicks</th><th>Short URL</th><th>Long URL</th></tr>' . $outdata . "</table><br>\n\r";
+		echo '<h3><b>Eniten klikattu edellisenä '. $numdays . ' päivänä:</b></h3><br/>'
+			. '<table><tr><th>Klikkejä</th><th>Lyhyt URL</th><th>Pitkä URL</th></tr>' . $outdata . "</table><br>\n\r";
 	}
 
-	// update next lines for addjustments on number of days and number of top links
+	// update next lines for adjustments on number of days and number of top links
 	// example: show_top(1,5) => print the 5 most popular links clicked in the last 1 day
 	show_top(1,15);     // last day
 	show_top(7,15);     // last week
