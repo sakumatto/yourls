@@ -2,20 +2,20 @@
 /*
 Plugin Name: Eniten klikattu
 Plugin URI: https://github.com/sakumatto/yourls
-Description: Shows an admin page with the top of last clicked links
+Description: Suomennettu - Shows an admin page with the top of last clicked links
 Version: 1.0
 Author: Saku (miconda fork)
-Author URI: http://miconda.blogspot.com/
+Author URI: https://sakumatto.fi/
 */
 
 yourls_add_action( 'plugins_loaded', 'popularclicks_add_page' );
 
 function popularclicks_add_page() {
-	yourls_register_plugin_page( 'popular_clicks', 'Popular Clicks', 'popularclicks_do_page' );
+	yourls_register_plugin_page( 'popular_clicks', 'Eniten klikattu', 'popularclicks_do_page' );
 }
 // Display popular clicks
 function popularclicks_do_page() {
-	$nonce = yourls_create_nonce('popular_clickks');
+	$nonce = yourls_create_nonce('popular_clicks');
 	echo '<h2>Eniten klikattu</h2>';
 
 	function show_top($numdays,$numrows) {
